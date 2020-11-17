@@ -3,31 +3,21 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {StyleSheet, Text, View} from 'react-native';
 import Home from '../screens/Home';
 import Contact from '../screens/Contact';
-import About from '../screens/About';
+import HomeStack from '../navigation/HomeStack';
+import ContactStack from '../navigation/ContactStack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-//const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
 return(
-  <Tab.Navigator>
-    <Tab.Screen name="home" component={Home} options={{title: "home"}}/>
-    <Tab.Screen name="contact" component={Contact} options={{title: "contact"}}/>
-    <Tab.Screen name="about" component={About} options={{title: "about"}}/>
-  </Tab.Navigator>
+  <Drawer.Navigator>
+    <Drawer.Screen name="home" component={HomeStack} options={{title: "home"}}/>
+    <Drawer.Screen name="contact" component={ContactStack} options={{title: "contact"}}/>
+  </Drawer.Navigator>
 )
-  /* return (
-    <Stack.Navigator>
-      <Stack.Screen name="home" component={Home} options={{title: 'Home'}} />
-      <Stack.Screen name="about" component={About} options={{title: 'About'}} />
-      <Stack.Screen
-        name="contact"
-        component={Contact}
-        options={{title: 'Contact'}}
-      />
-    </Stack.Navigator>
-  ); */
 }
 
 const styles = StyleSheet.create({});
